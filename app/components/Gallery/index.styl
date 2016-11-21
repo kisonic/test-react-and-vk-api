@@ -1,0 +1,60 @@
+@require '../../styles/variables'
+
+.gallery
+	margin 0 auto
+	padding gutter*2 gutter
+
+	@media (min-width screen_md_min)
+		max-width screen_md_min
+
+	&__title
+		margin 0 0 gutter*2
+		font-size 3em
+		line-height 1
+
+	&__subtitle
+		margin 0 0 gutter*2
+		font-size 1.5em
+		line-height 1
+
+	&__search
+		margin-bottom gutter*3
+
+	&__row
+		position relative
+		clearfix()
+
+	&__content
+		margin-bottom gutter*3
+
+		@media (min-width screen_sm_min)
+			margin-bottom 0
+			padding-right gutter*2
+			float left
+			width (100/3*2)%
+
+			&:after
+				content ''
+				position absolute
+				top 'calc(1.5em + %s)' % (gutter*2) // below the subtitle
+				left (100/3*2)%
+				bottom 0
+				display block
+				width 0
+				border-right 1px dotted silver
+
+		@media (min-width screen_md_min)
+			width 75%
+
+			&:after
+				left 75%
+
+	&__aside
+
+		@media (min-width screen_sm_min)
+			padding-left gutter*2
+			float left
+			width (100/3)%
+
+		@media (min-width screen_md_min)
+			width 25%

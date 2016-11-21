@@ -1,0 +1,81 @@
+@require '../../styles/variables'
+
+.gallery-grid
+	margin (- gutter)
+	clearfix()
+
+	&__item
+		padding gutter
+
+	&._responsive &__item
+
+		@media (min-width screen_sm_min)
+			float left
+			width 50%
+
+		@media (min-width screen_md_min)
+			width (100/3)%
+
+	&__item-inner
+		position relative
+		overflow hidden
+
+		@media (min-width screen_sm_min)
+			padding-bottom 75% // 4:3 Aspect Ratio
+
+	&__item-img
+		display block
+		width 100%
+
+		@media (min-width screen_sm_min)
+			position absolute
+			top 0
+			left 0
+			height 100%
+			object-fit cover
+
+	&__item-button
+		position absolute
+		top 0
+		right 0
+		width 50px
+		height 50px
+		color white
+		text-decoration none
+
+		@media (min-width screen_sm_min)
+			transform translate(50%, -50%)
+			transition transform time
+
+		&:before
+			content ''
+			position absolute
+			top 0
+			right 0
+			width 0
+			height 0
+			border 25px solid color_success
+			border-left-color transparent
+			border-bottom-color transparent
+
+			@media (min-width screen_sm_min)
+				transition border-top-color time, border-right-color time
+
+		&:hover:before
+			border-top-color darken(color_success, 10)
+			border-right-color darken(color_success, 10)
+
+		&:after
+			content '☆'
+			position absolute
+			top 6px
+			right 6px
+
+		&._active:after
+			content '★'
+
+	&__item-inner:hover &__item-button
+		transform none
+
+	&__empty
+		padding gutter

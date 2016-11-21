@@ -1,0 +1,51 @@
+@require '../../styles/variables'
+
+.gallery-search
+	clearfix()
+
+	&__field
+		margin-bottom gutter
+		padding gutter - 2 gutter
+		display block
+		width 100%
+		font-size 1.5em
+		line-height 1.2
+		border 2px solid color_success
+		outline 0
+		transition border-color time
+
+		@media (min-width screen_sm_min)
+			margin-bottom 0
+			float left
+			width (100/3*2)%
+			border-right-width 0
+
+		@media (min-width screen_md_min)
+			width 75%
+
+		&:focus
+			border-color darken(color_success, 10)
+
+	&__button
+		padding gutter
+		display block
+		width 100%
+		line-height 1.2
+		font-size 1.5em
+		text-transform uppercase
+		letter-spacing .05em
+		color white
+		background-color color_success
+		border 0
+		cursor pointer
+		transition background-color time
+
+		@media (min-width screen_sm_min)
+			float left
+			width (100/3)%
+
+		@media (min-width screen_md_min)
+			width 25%
+
+		&:hover
+			background-color darken(color_success, 10)
